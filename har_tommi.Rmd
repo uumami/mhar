@@ -1,0 +1,92 @@
+---
+title: "har_tommi"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+```{r}
+library(hitandrun)
+library(tidyverse)
+
+# SImplex time with thining factor of (n-1)^2 and 10000 samples
+sizes <- c(5, 15, 25, 50)
+sizes_ <- c(100,200)
+time_tibble <- tibble(Time=numeric(), Type=numeric(), Dim=numeric(), Samples=numeric(), Iter=numeric(), Thinning=numeric())
+for(timm in seq(10)){
+    for(n in sizes){
+        samp <- 10000
+        N <- n
+        thf <- (N-1)^2
+        constr <- simplexConstraints(N)
+        start_time <- Sys.time()
+        hitandrun(constr, n.samples=samp, thin=thf)
+        end_time <- Sys.time()
+        time <- difftime(end_time, start_time, tz,
+              units = c("secs"))
+        time_tibble <- rbind(tibble(Time=time, Type=2, Dim=N, Samples=samp,                       Iter=samp*thf, Thinning=thf), time_tibble)  
+        time_tibble %>%
+                write_csv('/home/godzilla/data/mhar_thesis_times/simplex_small_har_times.csv')
+        print(n)
+    }
+}
+
+
+# Sample Polytope hypercube
+time_tibble <- tibble(Time=numeric(), Type=numeric(), Dim=numeric(), Samples=numeric(), Iter=numeric(), Thinning=numeric())
+for(timm in seq(10)){
+   
+    for(n in sizes){
+        samp <- 10000
+        N <- n
+        thf <- (N-1)^2
+        A <- rbind(diag(N), -1*diag(N))
+        b <- rep(1, N*2)
+        d <- rep("<=", N*2)
+        x_0 <- rep(0, N)
+        constr <- list(constr=A, rhs=b, dir=d)
+       
+        start_time <- Sys.time()
+        har(x0=x_0, constr, N=samp*thf,thin=thf)
+        end_time <- Sys.time()
+       
+        time <- difftime(end_time, start_time, tz,
+              units = c("secs"))
+        time_tibble <- rbind(tibble(Time=time, Type=1, Dim=N, Samples=samp,                       Iter=samp*thf, Thinning=thf), time_tibble)  
+        time_tibble %>%
+                write_csv('/home/godzilla/data/mhar_thesis_times/hypercube_small_har_times.csv')
+        print(n)
+    }
+}
+```
+library(hitandrun)
+library(tidyverse)
+time_tibble <- tibble(Time=numeric(), Type=numeric(), Dim=numeric(), Samples=numeric(), Iter=numeric(), Thinning=numeric())
+for(n in seq(100,1000,100)){
+    samp <- 1
+    N <- n
+    thf <- 100
+    constr <- simplexConstraints(N)
+    start_time <- Sys.time()
+    hitandrun(constr, n.samples=samp, thin=thf)
+    end_time <- Sys.time()
+    time <- difftime(end_time, start_time, tz,
+          units = c("secs"))
+    time_tibble <- rbind(tibble(Time=time, Type=2, Dim=N, Samples=samp,                       Iter=samp*thf, Thinning=thf), time_tibble)  
+    time_tibble %>%
+            write_csv('/home/godzilla/data/mhar/times_hitandlkrdaeqawsfdqwun_6aREasdTY64.csv')
+    print(n)
+}
+

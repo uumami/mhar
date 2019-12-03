@@ -1,0 +1,3 @@
+Time,Type,Dim,Pad,Iter,Save,Path
+1.487985,2,10,32,13,3,output/sample_2_10_32_13.txt
+1.425430,2,10,32,13,3,output/sample_2_10_32_13.txt
