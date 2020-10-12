@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mhar",
-    version="0.0.1",
+    version="0.0.2",
     author="Mario Vazquez Corte uumami",
     author_email="uumami@sonder.art",
     description="The MHAR package for polytopes, in pytorch",
