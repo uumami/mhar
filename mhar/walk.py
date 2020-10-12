@@ -16,6 +16,10 @@ def mhar_walk(z,
               check=True,
               save=True,
               device='cpu'):
+
+    assert device in ['cpu', 'cuda'], print('The device is not correctly specified: ', device,
+                                            '\n Please choose cpu or cuda')
+
     # Set min and max values
     min_ = torch.finfo(torch.get_default_dtype()).min + 2.0
     max_ = torch.finfo(torch.get_default_dtype()).max - 2.0
@@ -98,7 +102,6 @@ def mhar_walk(z,
 
         # Warm
         if (warm > 0) & (burned >= thinning):
-            torch.cuda.empty_cache()
             warm = warm - 1
             burned = 0
 
@@ -106,14 +109,14 @@ def mhar_walk(z,
         if burned >= thinning:
             if (t == 1) & save:
                 X = torch.flatten(x, start_dim=1)
-                X = X.cpu()
+                if device == 'cuda':
+                    X = X.cpu()
             if (t > 1) & save:
                 X = torch.cat((X,
                                torch.flatten(x, start_dim=1).cpu()),
                               dim=0)
             t = t + 1
             burned = 0
-            torch.cuda.empty_cache()
 
         burned = burned + 1
 

@@ -9,8 +9,8 @@ print('Using device:', device)
 device_ = device.type
 
 # Hypercube
-X, time_ = hypercube_test(n=3,
-                          z=1,
+X, time_ = hypercube_test(n=10,
+                          z=10,
                           device=device_,
                           save=True,
                           T=100,
@@ -21,7 +21,7 @@ print("-----------------------------------")
 
 # Simplex
 X, time_ = simplex_test(n=3,
-                        z=1,
+                        z=5,
                         device=device_,
                         save=True,
                         T=100,
