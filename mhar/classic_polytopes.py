@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import time
-from walk import mhar_walk
+from mhar.mhar import mhar_walk
 
 
 def create_simplex(n):

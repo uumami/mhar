@@ -1,7 +1,6 @@
 import torch
-from projection_matrix import create_projection_matrix
-from random_generator import create_h, draw_uniform
-
+from mhar.projection_matrix import create_projection_matrix
+from mhar.random_generator import create_h, draw_uniform
 
 def mhar_walk(z,
               ai=torch.empty(0),
@@ -16,7 +15,7 @@ def mhar_walk(z,
               check=True,
               save=True,
               device='cpu'):
-
+    # Assert the device is correctly specified
     assert device in ['cpu', 'cuda'], print('The device is not correctly specified: ', device,
                                             '\n Please choose cpu or cuda')
 
@@ -70,7 +69,6 @@ def mhar_walk(z,
     # Iteration Loop
     t = 1
     burned = 0
-    torch.cuda.empty_cache()
     while t <= T:
 
         # Draw direction
@@ -120,7 +118,7 @@ def mhar_walk(z,
 
         burned = burned + 1
 
-    # Return
+        # Return
     if save:
         return X
     else:
