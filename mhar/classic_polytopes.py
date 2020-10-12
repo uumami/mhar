@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import time
-from mhar.mhar import mhar_walk
+from mhar.mhar import walk
 
 
 def create_simplex(n):
@@ -63,7 +63,7 @@ def hypercube_test(n,
     if not thinning:
         thinning = n*n*n
     # Sample Hypercube
-    X = mhar_walk(z=z,
+    X = walk(z=z,
                   ai=hyper_ai,
                   bi=hyper_bi,
                   x_0=x_0,
@@ -92,7 +92,7 @@ def simplex_test(n,
     # Automatic Thinning
     if not thinning:
         thinning = n*n*n
-    X = mhar_walk(z=z,
+    X = walk(z=z,
                   ai=simplex_ai,
                   bi=simplex_bi,
                   ae=simplex_ae,

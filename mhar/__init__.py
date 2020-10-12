@@ -1,2 +1,2 @@
-from mhar.mhar import mhar_walk
+from mhar.mhar import walk
 from mhar.example import mhar_example

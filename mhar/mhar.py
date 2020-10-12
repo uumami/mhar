@@ -2,7 +2,7 @@ import torch
 from mhar.projection_matrix import create_projection_matrix
 from mhar.random_generator import create_h, draw_uniform
 
-def mhar_walk(z,
+def walk(z,
               ai=torch.empty(0),
               bi=torch.empty(0),
               ae=torch.empty(0),
