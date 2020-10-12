@@ -19,3 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
 )
+
+install_requires = [
+    'elasticsearch>=1.6'
+]
