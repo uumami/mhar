@@ -9,12 +9,43 @@ def walk(z,
               be=torch.empty(0),
               x_0=torch.empty(0),
               T=1,
+              device='cpu',
               warm=0,
               seed=None,
               thinning=None,
               check=True,
-              save=True,
-              device='cpu'):
+              save=True):
+    '''
+    :param z:   int
+                padding parameter
+    :param ai: torch tensor
+                AI:=Coefficients of Inequality Restrictions
+    :param bi: torch tensor
+                bi:=Restriction values of the Inequality Restrictions
+    :param ae: torch tensor
+                AE:=Coefficients of Equality Restrictions
+    :param be: torch tensor
+                bi:= Restriction values of the Equality Restrictions
+    :param x_0: torch tensor
+                Starting point, must be strict inner point
+    :param T:   int
+                iid-iterations, total_iid_points = T*z. Each iid iteration will burn
+                the samples established by the thinning factor.
+    :param warm: int
+                Number of iid-iterations needed to warm.
+    :param seed: int
+                random seed
+    :param thinning: int
+                    Thinning Factor. Default O(n^3)
+    :param check: bool
+                    Print for sanity check
+    :param save: bool
+                Save iid samples or drop them, for debugging.
+    :param device: string
+                    cpu or cuda
+    :return: int or torch tensor
+
+    '''
     # Assert the device is correctly specified
     assert device in ['cpu', 'cuda'], print('The device is not correctly specified: ', device,
                                             '\n Please choose cpu or cuda')
