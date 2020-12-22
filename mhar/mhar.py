@@ -156,7 +156,7 @@ def walk(z,
         return 0
 
 
-def mhar(z,
+def mhar_walk(z,
             tensors,
               T=1,
               device='cpu',
