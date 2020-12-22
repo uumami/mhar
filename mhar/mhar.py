@@ -154,3 +154,4 @@ def walk(z,
         return X
     else:
         return 0
+
