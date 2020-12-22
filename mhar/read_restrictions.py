@@ -82,7 +82,7 @@ def np_2_tensor(A_in = None, b_in=None, A_eq=None, b_eq=None, x0=None):
     return A_in, b_in, A_eq, b_eq, x0
 
 
-def matrices_2_tensor(restrictions, starting_point):
+def mhar_tensors(restrictions, starting_point):
     tensors = np_2_tensor(A_in=restrictions[0], b_in=restrictions[1],
                                         A_eq=restrictions[2], b_eq=restrictions[3],
                                         x0=starting_point)

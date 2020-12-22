@@ -44,7 +44,7 @@ def chebyshev_center(A_in, b_in, A_eq = None, b_eq = None, lb = None, ub = None,
         return np.array(r.x[:-1], ndmin=2).transpose()
 
 
-def interior_point(restrictions, np_type=np.float64, lb=None, ub=None):
+def starting_point(restrictions, np_type=np.float64, lb=None, ub=None):
 
         x0 = chebyshev_center(A_in=restrictions[0], b_in=restrictions[1],
                               A_eq=restrictions[2], b_eq=restrictions[3],
