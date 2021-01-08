@@ -7,7 +7,7 @@ def walk(z,
               bi=torch.empty(0),
               ae=torch.empty(0),
               be=torch.empty(0),
-              x_0=torch.empty(0),
+              x0=torch.empty(0),
               T=1,
               device='cpu',
               warm=0,
@@ -26,7 +26,7 @@ def walk(z,
                 AE:=Coefficients of Equality Restrictions
     :param be: torch tensor
                 bi:= Restriction values of the Equality Restrictions
-    :param x_0: torch tensor
+    :param x0: torch tensor
                 Starting point, must be strict inner point
     :param T:   int
                 iid-iterations, total_iid_points = T*z. Each iid iteration will burn
@@ -84,11 +84,11 @@ def walk(z,
     if 'cpu' not in str(device):
         ai = ai.cuda()
         bi = bi.cuda()
-        x = x_0.cuda()
+        x = x0.cuda()
         if non_full:
             ae = ae.cuda()
     else:
-        x = x_0
+        x = x0
 
     # Create projection matrix
     if non_full:
@@ -154,3 +154,34 @@ def walk(z,
         return X
     else:
         return 0
+
+
+def mhar_walk(z,
+            tensors,
+              T=1,
+              device='cpu',
+              warm=0,
+              seed=None,
+              thinning=None,
+              check=True,
+              save=True):
+
+    ai = tensors[0]
+    bi = tensors[1]
+    ae = tensors[2]
+    be = tensors[3]
+    x0 = tensors[4]
+
+    return walk(z,
+              ai=ai,
+              bi=bi,
+              ae=ae,
+              be=be,
+              x0=x0,
+              T=T,
+              device=device,
+              warm=warm,
+              seed=seed,
+              thinning=thinning,
+              check=check,
+              save=save)

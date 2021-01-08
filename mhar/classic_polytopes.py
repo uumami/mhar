@@ -3,7 +3,6 @@ import numpy as np
 import time
 from mhar.mhar import walk
 
-
 def create_simplex(n):
     """
     Cretes the restrictions and innerpoint for a simplex polytope
