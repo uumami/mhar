@@ -2,10 +2,6 @@ import numpy as np
 import torch
 import os
 
-delimiter = ','
-folder = '/mnt/5AE83504E834DFC5/matrices'
-restrictions={'A_eq':'A_eq', 'b_eq':'b_eq', 'A_in':'A_in', 'b_in':'b_in'}
-
 
 def read_restrictions(folder='', delimiter=',', restrictions={
     'A_eq':'A_eq', 'b_eq':'b_eq', 'A_in':'A_in', 'b_in':'b_in'}, np_type=np.float64):

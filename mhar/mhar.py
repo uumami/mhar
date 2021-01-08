@@ -16,34 +16,35 @@ def walk(z,
               check=True,
               save=True):
     '''
-    :param z:   int
+    :param z:   [int]
                 padding parameter
-    :param ai: torch tensor
+    :param ai: [torch tensor]
                 AI:=Coefficients of Inequality Restrictions
-    :param bi: torch tensor
+    :param bi: [torch tensor]
                 bi:=Restriction values of the Inequality Restrictions
-    :param ae: torch tensor
+    :param ae: [torch tensor]
                 AE:=Coefficients of Equality Restrictions
-    :param be: torch tensor
+    :param be: [torch tensor]
                 bi:= Restriction values of the Equality Restrictions
-    :param x0: torch tensor
+    :param x0: [torch tensor]
                 Starting point, must be strict inner point
-    :param T:   int
+    :param T:   [int]
                 iid-iterations, total_iid_points = T*z. Each iid iteration will burn
                 the samples established by the thinning factor.
-    :param warm: int
+    :param warm: [int]
                 Number of iid-iterations needed to warm.
-    :param seed: int
+    :param seed: [int]
                 random seed
-    :param thinning: int
+    :param thinning: [int]
                     Thinning Factor. Default O(n^3)
-    :param check: bool
+    :param check: [bool]
                     Print for sanity check
-    :param save: bool
+    :param save: [bool]
                 Save iid samples or drop them, for debugging.
-    :param device: string
+    :param device: [string]
                     cpu or cuda
-    :return: int or torch tensor
+    -------------
+    :return: [int or torch tensor]
 
     '''
     # Assert the device is correctly specified
@@ -165,6 +166,31 @@ def mhar_walk(z,
               thinning=None,
               check=True,
               save=True):
+    '''
+    Wrapper for the walk function, that receives a tuple with the restrictions from the mhar_tensors function.
+    -------------
+    :param z: [int]
+                Padding parameter
+    :param tensors: [tuple of Pytorch tensors]
+                    Tuple of 5 tensors containing AI, bI, AE, bE, and starting point
+    :param T:   [int]
+                iid-iterations, total_iid_points = T*z. Each iid iteration will burn
+                the samples established by the thinning factor.
+    :param warm: [int]
+                Number of iid-iterations needed to warm.
+    :param seed: [int]
+                random seed
+    :param thinning: [int]
+                    Thinning Factor. Default O(n^3)
+    :param check: [bool]
+                    Print for sanity check
+    :param save: [bool]
+                Save iid samples or drop them, for debugging.
+    :param device: [string]
+                    cpu or cuda
+    -------------
+    :return: int or torch tensor
+    '''
 
     ai = tensors[0]
     bi = tensors[1]

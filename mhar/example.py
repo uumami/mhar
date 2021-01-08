@@ -2,6 +2,12 @@ import torch
 from mhar.classic_polytopes import hypercube_test, simplex_test
 
 def mhar_example():
+    '''
+    This function tests the code is operational by running the MHAR on a polytope and a hypercube.
+    -------------
+    -------------
+    :return:
+    '''
     # Set float 64 as default precision, can be changed to 32
     torch.set_default_dtype(torch.float64)
     # setting device on GPU if available, else CPU

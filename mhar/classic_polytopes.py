@@ -5,11 +5,11 @@ from mhar.mhar import walk
 
 def create_simplex(n):
     """
-    Cretes the restrictions and innerpoint for a simplex polytope
-
+    Cretes the restrictions and inner-point for a simplex polytope
+    -------------
     :param n: int
     Space of the polytope
-
+    -------------
     :return: Torch tensor representing the restrictions and innerpoint that form the simplex in Rn
     """
     # Create Inequalities
@@ -31,11 +31,11 @@ def create_simplex(n):
 
 def create_hypercube(n):
     """
-    Cretes the restrictions and innerpoint for an hypercube polytope in [-1,1]^n
-
+    Cretes the restrictions and inner-point for an hypercube polytope in [-1,1]^n
+    -------------
     :param n: int
     Space of the polytope
-
+    -------------
     :return: Torch tensor representing the restrictions and innerpoint that form the
     hypercube in [-1.1]^n
     """
@@ -55,6 +55,31 @@ def hypercube_test(n,
                    T=1,
                    warm=0,
                    seed=1693):
+    '''
+    Creates and samples the Hypercube of dimension n.
+    -------------
+
+    :param n:   [int]
+                Dimension of the space where the polytope lives.
+    :param z:   [int]
+                Padding parameter
+    :param thinning:    [int]
+                        Thinning Factor. Default O(n^3)
+    :param device:  [string]
+                    cpu or cuda
+    :param save: [bool]
+                Save iid samples or drop them, for debugging.
+    :param T:   [int]
+                iid-iterations, total_iid_points = T*z. Each iid iteration will burn
+                the samples established by the thinning factor.
+    :param warm: [int]
+                Number of iid-iterations needed to warm.
+    :param seed: [int]
+                random seed
+    -------------
+    :return: ([torch tensor, time)
+            Returns the samples from the polytope and the iteration time.
+    '''
     # Init hypercube
     hyper_ai, hyper_bi, x_0 = create_hypercube(n)
     start_time = time.time()
@@ -85,6 +110,31 @@ def simplex_test(n,
                   T=1,
                   warm=0,
                   seed=17283):
+    '''
+    Creates and samples the Simplex of dimension n.
+    -------------
+
+    :param n:   [int]
+                Dimension of the space where the polytope lives.
+    :param z:   [int]
+                Padding parameter
+    :param thinning:    [int]
+                        Thinning Factor. Default O(n^3)
+    :param device:  [string]
+                    cpu or cuda
+    :param save: [bool]
+                Save iid samples or drop them, for debugging.
+    :param T:   [int]
+                iid-iterations, total_iid_points = T*z. Each iid iteration will burn
+                the samples established by the thinning factor.
+    :param warm: [int]
+                Number of iid-iterations needed to warm.
+    :param seed: [int]
+                random seed
+    -------------
+    :return: ([torch tensor, time)
+            Returns the samples from the polytope and the iteration time.
+    '''
     # Init Simplex
     simplex_ai, simplex_bi, simplex_ae, simplex_be, x_0 = create_simplex(n)
     start_time = time.time()
