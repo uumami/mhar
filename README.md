@@ -8,4 +8,7 @@ https://raw.githubusercontent.com/uumami/mhar_pytorch/master/mhar_draft.pdf
 A Jupyter Notebook with examples of how to use it is in (works in Colab):  
 https://github.com/uumami/mhar/blob/beta/tutorial/turorial.ipynb  
 
+PyPi: 
+https://pypi.org/project/mhar/
+
 
