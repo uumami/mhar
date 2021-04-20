@@ -3,7 +3,7 @@ This package constains the fastest polytope sample know to date.
 It only works with linear inequality restrictions, it does not accept V-representation.  
 
 A paper with the Asymptotic Complexity and Tests for the MHAR is in:
-https://raw.githubusercontent.com/uumami/mhar_pytorch/master/mhar_draft.pdf
+https://raw.githubusercontent.com/uumami/mhar_pytorch/master/mhar_draft.pdf  
 Arxiv: https://arxiv.org/abs/2104.07097?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2FQSXk+%28ExcitingAds%21+cs+updates+on+arXiv.org%29
 
 Original code for the paper: https://github.com/uumami/mhar_pytorch
