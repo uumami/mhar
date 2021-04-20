@@ -14,7 +14,7 @@ https://github.com/uumami/mhar/blob/beta/tutorial/turorial.ipynb
 PyPi: 
 https://pypi.org/project/mhar/
 
-You need to install Pytorch, the you can use the following command to install the MHAR package:
+You need to install Pytorch, the you can use the following command to install the MHAR package:  
 ``` pip install mhar ```
 
 
