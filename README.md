@@ -1,5 +1,5 @@
 # MHAR (Matrix/Mentat Hit and Run)
-This package constains the fastest polytope sample know to date.
+This package constains one of the fastest polytope samplers know to date.
 It only works with linear inequality restrictions, it does not accept V-representation.  
 
 A paper with the Asymptotic Complexity and Tests for the MHAR is in:
