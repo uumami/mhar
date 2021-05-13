@@ -21,5 +21,6 @@ https://pypi.org/project/mhar/
 You need to install Pytorch, the you can use the following command to install the MHAR package:  
 ``` pip install mhar ```
 
+Contributors to the code: uumami (Mario Vazquez Corte)
 
 
