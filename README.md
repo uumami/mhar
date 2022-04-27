@@ -4,9 +4,9 @@ It only works with linear inequality restrictions, it does not accept V-represen
 
 A paper with the Asymptotic Complexity and Tests for the MHAR is in:
  
-Arxiv: https://arxiv.org/abs/2104.07097?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2FQSXk+%28ExcitingAds%21+cs+updates+on+arXiv.org%29
+Arxiv: https://arxiv.org/abs/2104.07097
 
-LACSC2021 Conference: hhttps://www.youtube.com/watch?v=o2CxnI6onts
+LACSC2021 Conference: https://www.youtube.com/watch?v=o2CxnI6onts
 
 Original code for the paper: https://github.com/uumami/mhar_pytorch
 
@@ -22,5 +22,3 @@ You need to install Pytorch, the you can use the following command to install th
 ``` pip install mhar ```
 
 Contributors to the code: uumami (Mario Vazquez Corte)
-
-
