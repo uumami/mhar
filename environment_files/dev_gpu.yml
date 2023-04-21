@@ -1,0 +1,8 @@
+name: dev_gpu
+channels:
+defaults
+dependencies:
+- file: ../environment_files/base_gpu.yml
+- pip
+- pip:
+  - nbdev
