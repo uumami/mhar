@@ -1,7 +1,6 @@
 # MHAR (Matrix/Mentat Hit and Run)
 # Status
-I'm currently building the new version that allows for mixed numerical precision the new repo is [here](https://github.com/sonder-art/mhar) and a working example/tutorial can be found [here](https://github.com/sonder-art/mhar/blob/released/nbs/tutorial.ipynb)
-
+I'm currently building the new version that allows for mixed numerical precision the new repo is [here](https://github.com/sonder-art/mhar) and a working example/tutorial can be found [full dimensional](https://github.com/sonder-art/mhar/blob/released/nbs/tutorial_full_dimensional.ipynb) and [non-full dimensional](https://github.com/sonder-art/mhar/blob/released/nbs/tutorial_nonfull_dimensional.ipynb) 
 This package constains one of the fastest polytope samplers known to date.
 It only works with linear inequality restrictions, it does not accept V-representation.  
 
